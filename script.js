@@ -52,6 +52,7 @@ const delAll = () => {
     document.getElementById('sticky').innerHTML = ''; // メモ表示欄を初期化
 }
 
+/* 指定したメモを消去する関数 */
 const deletememo = (i) => {
     memodata = JSON.parse(localStorage.getItem('memostorage'));
     memodata.splice(i, 1);
@@ -60,6 +61,7 @@ const deletememo = (i) => {
     display();
 }
 
+/* 指定したメモを編集する関数 */
 const editmemo = (i) => {
     memodata = JSON.parse(localStorage.getItem('memostorage'));
     let fixedname = document.getElementById(`memonameedit${i}`).value;
@@ -71,6 +73,7 @@ const editmemo = (i) => {
     memodata = [];
 }
 
+/* データからメモを表示する関数 */
 let tmptext = '';
 const display = () => {
     for (let i = 0; i < memodata.length; i++) {
@@ -138,13 +141,11 @@ const display = () => {
     tmptext = '';
 }
 
+/* 初期化処理 */
 memodata = JSON.parse(localStorage.getItem('memostorage'));
-if (memodata == null) {
-    memodata = [];
-    console.log('Local Storageを初期化しました');
+if (memodata) {
+    display(); // LocalStorageに値が残っていればメモを表示
 }
 else {
-    console.log('Local Storageに値が残っています。')
-    console.log(memodata);
-    display();
+    memodata = []; // LocalStorageに値がなければ初期化
 }
