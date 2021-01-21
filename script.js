@@ -13,7 +13,7 @@ let memodata = [];
 const gettime = () => {
     let now = new Date();           // Dateインスタンスを作成
     let year = now.getFullYear();   // 年の取得
-    let month = now.getMonth()+1;   // 月の取得
+    let month = now.getMonth() + 1;   // 月の取得
     let date = now.getDate();       // 日の取得
     let hour = now.getHours();      // 時間の取得
     let min = now.getMinutes();     // 分の取得
@@ -24,22 +24,28 @@ const gettime = () => {
 
 /* メモを追加する関数 */
 const add = () => {
-    if(memodata == "" || memodata == null){ // もしメモを格納している変数の中に何も入っていなかったら初期化する
+    if (!memodata) { // もしメモを格納している変数の中に何も入っていなかったら初期化する
         memodata = [];
     }
-    else{
+    else {
         memodata = JSON.parse(localStorage.getItem('memostorage')); // メモを格納している変数の中に何か入っていたらLocal Storageを参照して最新の状態に更新する
     }
     let name = document.getElementById('memoname').value; // 名前欄からメモの名前を取得
     let text = document.getElementById('memotext').value; // 本文欄からメモの本文を取得
     let time = gettime(); // 現在時刻を取得
-    memodata.push({'n':name, 't':text, 'a':time}); // メモを格納している変数に連想配列としてメモの内容を代入
+    memodata.push({ 'n': name, 't': text, 'a': time }); // メモを格納している変数に連想配列としてメモの内容を代入
     localStorage.setItem('memostorage', JSON.stringify(memodata)); // 取得したメモの内容をLocal StorageにJSONデータとして格納
     display(); // メモの内容を表示する関数を呼び出す
 }
 
+/* 入力フォームを削除する関数 */
+const delForm = () => {
+    document.getElementById('memoname').value = ''; // 名前欄を無にする
+    document.getElementById('memotext').value = ''; // メモ本文欄を無にする
+}
+
 /* メモを全消去する関数 */
-const del = () => {
+const delAll = () => {
     localStorage.clear('memostorage'); // clearメソッドで全消去
     memodata = []; // メモを格納する変数を初期化
     tmptext = ''; // メモ表示用の変数を初期化
@@ -59,7 +65,7 @@ const editmemo = (i) => {
     let fixedname = document.getElementById(`memonameedit${i}`).value;
     let fixedtext = document.getElementById(`memotextedit${i}`).value;
     let fixedtime = gettime();
-    memodata[i] = {'n':fixedname, 't':fixedtext, 'a':fixedtime};
+    memodata[i] = { 'n': fixedname, 't': fixedtext, 'a': fixedtime };
     localStorage.setItem('memostorage', JSON.stringify(memodata));
     display();
     memodata = [];
@@ -67,7 +73,7 @@ const editmemo = (i) => {
 
 let tmptext = '';
 const display = () => {
-    for(let i=0;i < memodata.length;i++){
+    for (let i = 0; i < memodata.length; i++) {
         tmptext = tmptext + `
         <div class="card-body" style="background-color: #f9f957; margin: 10px 10px 10px 10px;">
             <h5 class="card-title">${memodata[i].n}</h5>
@@ -133,11 +139,11 @@ const display = () => {
 }
 
 memodata = JSON.parse(localStorage.getItem('memostorage'));
-if(memodata == null){
+if (memodata == null) {
     memodata = [];
     console.log('Local Storageを初期化しました');
 }
-else{
+else {
     console.log('Local Storageに値が残っています。')
     console.log(memodata);
     display();

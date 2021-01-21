@@ -1,76 +1,89 @@
 <!doctype html>
 <html lang="ja">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-    <title>Memottoko!</title>
-  </head>
-  <body>
-      <header>
-          <div class="collapse bg-dark" id="navbarHeader">
-            <div class="container">
-              <div class="row">
-                <div class="col-sm-8 col-md-7 py-4">
-                  <h4 class="text-white">About</h4>
-                  <p class="text-muted">基礎プログラミング演習2 最終課題 ―― 920OJ<br>Memottoko!は、簡易メモ・付箋システムです。メモした内容はLocal Storage内に保存され、同一端末・ブラウザ内に保持されます。</p>
-                </div>
-                <div class="col-sm-4 offset-md-1 py-4">
-                  <h4 class="text-white">Contact</h4>
-                  <ul class="list-unstyled">
-                    <li><a href="https://twitter.com/920oj" class="text-white">Follow on Twitter</a></li>
-                    <li><a href="https://920oj.net/" class="text-white">Visit my Website</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+    integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <title>Memottoko!</title>
+</head>
+
+<body>
+  <header>
+    <div class="collapse bg-dark" id="navbarHeader">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 col-md-7 py-4">
+            <h4 class="text-white">About</h4>
+            <p class="text-muted">基礎プログラミング演習2 最終課題 ―― 大岩潤矢<br>Memottoko!は、簡易メモ・付箋システムです。メモした内容はLocal
+              Storage内に保存され、同一端末・ブラウザ内に保持されます。</p>
           </div>
-          <div class="navbar navbar-dark bg-dark shadow-sm">
-            <div class="container d-flex justify-content-between">
-              <a href="#" class="navbar-brand d-flex align-items-center">
-                <i class="fas fa-file-signature fa-fw"></i>
-                <strong>Memottoko!</strong>
-              </a>
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-            </div>
+          <div class="col-sm-4 offset-md-1 py-4">
+            <h4 class="text-white">Contact</h4>
+            <ul class="list-unstyled">
+              <li><a href="https://twitter.com/920oj" class="text-white">Follow on Twitter</a></li>
+              <li><a href="https://920oj.net/" class="text-white">Visit my Website</a></li>
+            </ul>
           </div>
-        </header>
-        <main role="main">
-            <section class="jumbotron text-center">
-              <div class="container">
-                <h1 class="jumbotron-heading" style="font-size: 1.9rem;">とりあえずメモっとこ！</h1>
-                <p>
-                  下にメモの名前・内容を記述して、ボタンをクリックしてください。
-                </p>
-                <form>
-                  <div class="form-group">
-                    <label for="exampleFormControlInput1">メモの名前を入力</label>
-                    <input type="email" class="form-control" id="memoname" placeholder="明日のご飯">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleFormControlTextarea1">メモの本文を入力</label>
-                    <textarea class="form-control" id="memotext" rows="3" placeholder="ラーメンを食べに行く"></textarea>
-                    </div>
-                </form>
-                <p>
-                  <a href="#" class="btn btn-primary my-2" onclick="add();">追加</a>
-                  <a href="#" class="btn btn-secondary my-2" onclick="del();">全消去</a>
-                </p>
-              </div>
-            </section>
-        </main>
-        <div class="album py-5 bg-light">
-          <div class="container">
-            <div class="row" id="sticky">
-            </div>
+        </div>
+      </div>
+    </div>
+    <div class="navbar navbar-dark bg-dark shadow-sm">
+      <div class="container d-flex justify-content-between">
+        <a href="#" class="navbar-brand d-flex align-items-center">
+          <i class="fas fa-file-signature fa-fw"></i>
+          <strong>Memottoko!</strong>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"
+          aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+  <main role="main">
+    <section class="jumbotron text-center">
+      <div class="container">
+        <h1 class="jumbotron-heading" style="font-size: 1.9rem;">とりあえずメモっとこ！</h1>
+        <p>
+          下にメモの名前・内容を記述して、ボタンをクリックしてください。
+        </p>
+        <form>
+          <div class="form-group">
+            <label for="exampleFormControlInput1">メモの名前を入力</label>
+            <input type="email" class="form-control" id="memoname" placeholder="明日のご飯">
           </div>
-        </div>  
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-    <script src="script.js"></script>
-  </body>
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">メモの本文を入力</label>
+            <textarea class="form-control" id="memotext" rows="3" placeholder="ラーメンを食べに行く"></textarea>
+          </div>
+        </form>
+        <p>
+          <a href="#" class="btn btn-primary my-2" onclick="add();">追加</a>
+          <a href="#" class="btn btn-secondary my-2" onclick="delForm();">全消去</a>
+        </p>
+      </div>
+    </section>
+  </main>
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <div class="row" id="sticky">
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+    integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+    integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+    crossorigin="anonymous"></script>
+  <script src="script.js"></script>
+</body>
+
 </html>
